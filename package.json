@@ -1,0 +1,30 @@
+{
+  "name": "capstone2_crud",
+  "version": "1.0.0",
+  "description": "Game Management CRUD Application using MongoDB,ExpressJS and NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arjuns007/Capstone2_CRUD.git"
+  },
+  "author": "Arjun Seth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arjuns007/Capstone2_CRUD/issues"
+  },
+  "homepage": "https://github.com/arjuns007/Capstone2_CRUD#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.1",
+    "mongodb": "^4.2.0",
+    "mongoose": "^6.0.13"
+  },
+  "devDependencies": {
+    "handlebars": "^4.7.7",
+    "nodemon": "^2.0.15"
+  }
+}

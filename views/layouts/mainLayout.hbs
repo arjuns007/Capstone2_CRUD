@@ -1,0 +1,138 @@
+<html>
+
+  <head>
+    <title>Capstone2_CRUD_GamesManagement_ArjunSeth122</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body class="bg-secondary">
+    <div class="row">
+      <div
+        class="col-md-10 offset-md-1"
+        style="background-color: #fff;margin-top: 50px;padding:20px;"
+      >
+        {{! ADD/EDIT }}
+
+        <h3>{{viewTitle}}</h3>
+
+        <form action="/game" method="POST" autocomplete="off">
+          <input type="hidden" name="_id" value="{{game._id}}" />
+
+          <div class="form-row">
+
+            <div class="form-group col-md-6">
+              <label>Title</label>
+              <input
+                type="text"
+                class="form-control"
+                name="title"
+                placeholder="Title"
+                value="{{game.title}}"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label>Developer</label>
+              <input
+                type="text"
+                class="form-control"
+                name="developer"
+                placeholder="Developer"
+                value="{{game.developer}}"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label>Genre</label>
+              <input
+                type="text"
+                class="form-control"
+                name="genre"
+                placeholder="Genre"
+                value="{{game.genre}}"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label>Year</label>
+              <input
+                type="text"
+                class="form-control"
+                name="year"
+                placeholder="Year"
+                value="{{game.year}}"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label>Price (INR)</label>
+              <input
+                type="number"
+                class="form-control"
+                name="price"
+                placeholder="Price (INR)"
+                value="{{game.price}}"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success"><i
+                class="fa fa-database"
+              ></i>
+              Submit</button>
+
+          </div>
+        </form>
+        {{! LIST VIEW }}
+        <h3 style="font-size: 35px;">
+          <center style="padding-bottom: 10px;">Game List</center></h3>
+        <table class="table table-striped" style="font-size: 20px;">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Developer</th>
+              <th>Genre</th>
+              <th>Year</th>
+              <th>Price</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each list}}
+              <tr>
+                <td>{{this.title}}</td>
+                <td>{{this.developer}}</td>
+                <td>{{this.genre}}</td>
+                <td>{{this.year}}</td>
+                <td>{{this.price}}</td>
+                <td>
+                  <a href="/game/{{this._id}}"><i
+                      class="fa fa-pencil fa-lg"
+                      aria-hidden="true"
+                    ></i></a>
+                  <a
+                    href="/game/delete/{{this._id}}"
+                    onclick="return confirm('Are you sure to delete this record ?');"
+                  ><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
